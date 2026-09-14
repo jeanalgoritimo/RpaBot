@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>RPA Demo - Pedidos</title>
+
+    <style>
+        /* Estilos da tabela de demonstração. */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f7f8fa;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #1f4e78;
+            color: white;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Pedidos</h2>
+
+    <!--
+        O id "gridPedidos" é utilizado pelo Selenium no seletor:
+        #gridPedidos tbody tr
+
+        Esse seletor retorna todas as linhas de dados existentes no tbody.
+    -->
+    <table id="gridPedidos">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Produto</th>
+            <th>Valor</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+
+        <!-- Dados fictícios usados pelo RPA para demonstrar a extração. -->
+        <tbody>
+        <tr>
+            <td>1001</td>
+            <td>Empresa Alpha</td>
+            <td>Motor</td>
+            <td>1250.50</td>
+            <td>Aprovado</td>
+        </tr>
+
+        <tr>
+            <td>1002</td>
+            <td>Empresa Beta</td>
+            <td>Sensor</td>
+            <td>850.90</td>
+            <td>Pendente</td>
+        </tr>
+
+        <tr>
+            <td>1003</td>
+            <td>Empresa Gamma</td>
+            <td>CLP</td>
+            <td>3890.00</td>
+            <td>Aprovado</td>
+        </tr>
+
+        <tr>
+            <td>1004</td>
+            <td>Empresa Delta</td>
+            <td>Inversor</td>
+            <td>2750.00</td>
+            <td>Processando</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>RPA Demo - Login</title>
+
+    <style>
+        /* Estilos apenas para deixar a tela de demonstração mais agradável. */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            width: 350px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,.12);
+        }
+
+        h2 { text-align: center; }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            cursor: pointer;
+        }
+
+        #erro {
+            color: red;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>RPA Demo</h2>
+
+    <!-- Área usada para exibir mensagens quando as credenciais forem inválidas. -->
+    <div id="erro"></div>
+
+    <!--
+        Os atributos id abaixo são importantes para o Selenium.
+        O robô utiliza By.Id("usuario") e By.Id("senha") para localizar os campos.
+    -->
+    <label for="usuario">Usuário</label>
+    <input id="usuario" type="text">
+
+    <label for="senha">Senha</label>
+    <input id="senha" type="password">
+
+    <!-- O Selenium encontra este botão usando By.Id("btnEntrar"). -->
+    <button id="btnEntrar" onclick="login()">Entrar</button>
+</div>
+
+<script>
+    // Login propositalmente simples para fins didáticos.
+    // Em um sistema real, a validação ocorreria no backend e nunca desta forma.
+    function login() {
+        const usuario = document.getElementById("usuario").value;
+        const senha = document.getElementById("senha").value;
+
+        // Credenciais usadas apenas neste protótipo.
+        if (usuario === "admin" && senha === "admin") {
+            // Após o login, navega para a página que contém o grid lido pelo RPA.
+            window.location.href = "grid.html";
+            return;
+        }
+
+        document.getElementById("erro").innerText =
+            "Usuário ou senha inválidos";
+    }
+</script>
+
+</body>
+</html>
